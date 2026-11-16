@@ -32,10 +32,10 @@ const TITLES: Record<string, string> = {
 
 export function Shell() {
   const { ds, filters, setFilters, period, periods, scope, user, setUserId, theme, toggleTheme, toasts, repoKind, signOut } = useStore();
-  const [collapsed, setCollapsed] = useState(() => { const pref = localStorage.getItem('bimcc.nav'); return pref ? pref === '1' : window.innerWidth < 1200; });
+  const [collapsed, setCollapsed] = useState(() => { let pref: string | null = null; try { pref = localStorage.getItem('bimcc.nav'); } catch { /* storage unavailable */ } return pref ? pref === '1' : window.innerWidth < 1200; });
   const loc = useLocation();
   const project = ds.projects.find((p) => p.id === filters.projectId);
-  const toggle = () => { setCollapsed((c) => { localStorage.setItem('bimcc.nav', c ? '0' : '1'); return !c; }); };
+  const toggle = () => { setCollapsed((c) => { try { localStorage.setItem('bimcc.nav', c ? '0' : '1'); } catch { /* storage unavailable */ } return !c; }); };
 
   return (
     <div className="flex h-full">

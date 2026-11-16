@@ -1,8 +1,19 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+/**
+ * Some bundled libraries (ExcelJS/sax) contain a literal U+FFFD inside string literals.
+ * Emit it as the equivalent escape so the output is plain, portable text.
+ */
+const escapeReplacementChar = () => ({
+  name: 'escape-replacement-char',
+  generateBundle(_: unknown, bundle: Record<string, { type: string; code?: string }>) {
+    for (const f of Object.values(bundle)) if (f.type === 'chunk' && f.code) f.code = f.code.replace(/\uFFFD/g, '\\uFFFD');
+  },
+});
+
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), escapeReplacementChar()],
   base: './',
   build: {
     chunkSizeWarningLimit: 1600,

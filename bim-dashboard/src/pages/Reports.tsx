@@ -35,7 +35,7 @@ export default function Reports() {
     finally { setBusy(null); }
   };
   const print = () => {
-    localStorage.setItem(REPORT_KEY, JSON.stringify({ type, settings: st }));
+    try { localStorage.setItem(REPORT_KEY, JSON.stringify({ type, settings: st })); } catch { /* print view falls back to auto-generated text */ }
     window.open(`${location.pathname}#/report/${type}`, '_blank');
   };
   const excel = async () => {

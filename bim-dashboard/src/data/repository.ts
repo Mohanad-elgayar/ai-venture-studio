@@ -24,14 +24,20 @@ const KEY = 'bimcc.dataset';
 
 export class LocalRepository implements Repository {
   readonly kind = 'local' as const;
+  private memory: Dataset | null = null; // fallback when browser storage is unavailable
   async load(): Promise<Dataset | null> {
-    const raw = localStorage.getItem(KEY);
+    let raw: string | null = null;
+    try { raw = localStorage.getItem(KEY); } catch { return this.memory; }
     if (!raw) return null;
     const ds = JSON.parse(raw) as Dataset;
     if (ds.version !== DATA_VERSION) return null; // schema changed -> regenerate
     return ds;
   }
   async persist(ds: Dataset): Promise<void> {
+    this.memory = ds;
+    let available = true;
+    try { localStorage.getItem(KEY); } catch { available = false; }
+    if (!available) return; // storage blocked (private mode / sandbox): keep data in memory for this session
     try {
       localStorage.setItem(KEY, JSON.stringify(ds));
     } catch (e) {
