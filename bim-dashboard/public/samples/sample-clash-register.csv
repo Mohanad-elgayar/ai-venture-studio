@@ -1,0 +1,6 @@
+Clash ID,Clash Description,Clash Type,Discipline A,Discipline B,Building,Zone,Level,Package,Grid Reference,Severity,Priority,Status,Assigned To,Responsible Company,Date Identified,Due Date,Date Resolved,Resolution Notes
+IMP-0001,DEMO SAMPLE - Sprinkler main clashes with cable tray,Hard,Fire Fighting,Electrical,T2,East,L05,MEP Package B (T2/PD),E-7,High,P2,In Progress,Aisha Bello (Demo),Demo Fire Protection Co.,05/11/2026,19/11/2026,,
+IMP-0002,DEMO SAMPLE - Drainage pipe within clearance of beam,Clearance,PLB,STR,PD,Z2,B1,MEP Package B (T2/PD),C-3,Medium,P3,Resolved,Tomás García (Demo),Demo MEP Consultants,2026-10-20,2026-11-10,2026-11-02,Pipe dropped 75mm
+IMP-0003,DEMO SAMPLE - Duplicate row to test validation,Hard,MEC,STR,T1,North,L02,,A-1,Critical,P1,New,,,2026-11-12,,,
+IMP-0003,DEMO SAMPLE - Duplicate ID within file,Hard,MEC,STR,T1,North,L02,,A-1,Critical,P1,New,,,2026-11-12,,,
+IMP-0004,DEMO SAMPLE - Invalid date example,Soft,HVAC,ARC,T1,Core,L08,Fit-out,B-2,Low,P4,Active,,,not-a-date,,,
