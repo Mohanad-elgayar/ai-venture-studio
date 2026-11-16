@@ -7,7 +7,12 @@ import { parseFile, type ParsedFile } from '../importers/parse';
 import { autoMap, FIELDS, type Target } from '../importers/fields';
 import { buildRecords, requiredMissing, type ImportOptions, type RowResult } from '../importers/validate';
 import { DISCIPLINES, SEVERITIES } from '../lib/constants';
-import { downloadCSV, stamp } from '../lib/export';
+import { downloadBlob, downloadCSV, stamp } from '../lib/export';
+// Sample files are bundled (not fetched) so they also work in the single-file HTML build.
+import sampleXml from '../../public/samples/sample-navisworks-clash-report.xml?raw';
+import sampleClashCsv from '../../public/samples/sample-clash-register.csv?raw';
+import sampleIssuesCsv from '../../public/samples/sample-coordination-issues.csv?raw';
+const saveSample = (text: string, name: string, type: string) => downloadBlob(new Blob([text], { type }), name);
 import { cls } from '../lib/format';
 import type { Clash, CoordinationIssue, Deliverable, DisciplineCode, Severity } from '../types';
 
@@ -108,9 +113,9 @@ export default function Import() {
           <Card title="Templates & samples" subtitle="DEMO sample files to try the import workflow">
             <ul className="space-y-2 text-sm">
               <li><button className="text-accent hover:underline inline-flex items-center gap-1" onClick={() => downloadCSV([], `${target}-import-template.csv`, FIELDS[target].map((f) => f.label))}><Download size={13} /> Blank {TARGETS.find((t) => t.id === target)!.label.toLowerCase()} template (.csv)</button></li>
-              <li><a className="text-accent hover:underline inline-flex items-center gap-1" href="samples/sample-navisworks-clash-report.xml" download><Download size={13} /> Sample Navisworks Clash Detective XML</a></li>
-              <li><a className="text-accent hover:underline inline-flex items-center gap-1" href="samples/sample-clash-register.csv" download><Download size={13} /> Sample clash register CSV (includes deliberate errors)</a></li>
-              <li><a className="text-accent hover:underline inline-flex items-center gap-1" href="samples/sample-coordination-issues.csv" download><Download size={13} /> Sample coordination issues CSV</a></li>
+              <li><button className="text-accent hover:underline inline-flex items-center gap-1" onClick={() => saveSample(sampleXml, 'sample-navisworks-clash-report.xml', 'application/xml')}><Download size={13} /> Sample Navisworks Clash Detective XML</button></li>
+              <li><button className="text-accent hover:underline inline-flex items-center gap-1" onClick={() => saveSample(sampleClashCsv, 'sample-clash-register.csv', 'text/csv')}><Download size={13} /> Sample clash register CSV (includes deliberate errors)</button></li>
+              <li><button className="text-accent hover:underline inline-flex items-center gap-1" onClick={() => saveSample(sampleIssuesCsv, 'sample-coordination-issues.csv', 'text/csv')}><Download size={13} /> Sample coordination issues CSV</button></li>
             </ul>
             <div className="mt-4 text-xs text-muted space-y-2">
               <p><b className="text-ink">Navisworks support:</b> Clash Detective <i>Report → XML</i> and <i>HTML (Tabular)</i>. Mapped fields: clash name/GUID, test name, status (New/Active/Reviewed/Approved/Resolved), description (Hard/Clearance/Duplicates), distance, grid location, clash point, date found/approved, item layers/names/source files, comments.</p>

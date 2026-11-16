@@ -1,6 +1,7 @@
 /**
  * End-to-end smoke test. Start the app first (npm run dev or npm run preview), then:
  *   BASE_URL=http://localhost:5173 node e2e/smoke.cjs
+ *   BASE_URL=file:///abs/path/release/BIM-Coordination-Center.html node e2e/smoke.cjs   (single-file build)
  * Exercises navigation, filters, matrix drill-down, clash editing, permissions, import, exports and reports.
  */
 const { chromium } = require('playwright');
@@ -19,7 +20,8 @@ const num = (s) => Number(String(s).replace(/[^0-9.]/g, ''));
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
-  const go = async (r) => { await page.goto(`${BASE}/#${r}`); await page.waitForTimeout(700); };
+  const url = (r) => (BASE.endsWith('.html') ? `${BASE}#${r}` : `${BASE}/#${r}`); // supports the single-file build via file://
+  const go = async (r) => { await page.goto(url(r)); await page.waitForTimeout(700); };
   const kpi = async (label) => num(await page.locator('div.card, button.card').filter({ hasText: new RegExp(`^${label}`, 'i') }).first().locator('div.text-\\[26px\\]').innerText());
 
   // 1. navigation
@@ -132,7 +134,7 @@ const num = (s) => Number(String(s).replace(/[^0-9.]/g, ''));
   await popup.close();
 
   // 8. import CSV (with deliberate errors) and Navisworks XML
-  const before = (await page.goto(`${BASE}/#/`), await page.waitForTimeout(600), await kpi('Total clashes'));
+  const before = (await page.goto(url('/')), await page.waitForTimeout(600), await kpi('Total clashes'));
   await go('/import');
   await page.setInputFiles('input[type=file]', path.join(__dirname, '..', 'public', 'samples', 'sample-clash-register.csv'));
   await page.waitForTimeout(800);

@@ -14,6 +14,12 @@ npm test             # unit tests (metrics, matrix, importers)
 npm run build        # production build in dist/ (static, deployable anywhere)
 ```
 
+Single self-contained HTML file (all code, styles and demo data inlined; opens by double-click, no server):
+
+```bash
+npm run build:single   # -> release/BIM-Coordination-Center.html
+```
+
 End-to-end smoke test (50 checks: navigation, filters, matrix drill-down, edits, permissions, imports, all exports and reports, responsive layouts):
 
 ```bash
