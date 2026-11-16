@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- DEMO SAMPLE: fictional Navisworks Clash Detective XML report for testing the import mapping. -->
+<exchange xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" units="m" filename="DEMO-Federated.nwd" filepath="C:\Demo">
+  <batchtest name="Demo Batch" internal_name="Demo Batch" units="m">
+    <clashtests>
+      <clashtest name="MEC vs STR" test_type="hard" status="ok" tolerance="0.010" merge_composites="1">
+        <clashresults>
+          <clashresult name="Clash1" guid="a1b2c3d4-0001" href="" status="new" distance="-0.142">
+            <description>Hard</description>
+            <resultstatus>New</resultstatus>
+            <clashpoint><pos3f x="102.400" y="55.100" z="12.850"/></clashpoint>
+            <gridlocation>C-4 : L03</gridlocation>
+            <createddate><date year="2026" month="11" day="4" hour="9" minute="12" second="0"/></createddate>
+            <clashobjects>
+              <clashobject>
+                <objectattribute><name>Element ID</name><value>482211</value></objectattribute>
+                <layer>L03</layer>
+                <pathlink><node>File</node><node>HMD-DMC-T1-ZZ-M3-M-0003.nwc</node><node>L03</node></pathlink>
+                <smarttags><smarttag><name>Item Name</name><value>Chilled water pipe DN150</value></smarttag><smarttag><name>Item Type</name><value>Pipe</value></smarttag></smarttags>
+              </clashobject>
+              <clashobject>
+                <layer>L03</layer>
+                <pathlink><node>File</node><node>HMD-DSE-T1-ZZ-M3-S-0002.nwc</node><node>L03</node></pathlink>
+                <smarttags><smarttag><name>Item Name</name><value>Transfer beam TB-12</value></smarttag><smarttag><name>Item Type</name><value>Structural Framing</value></smarttag></smarttags>
+              </clashobject>
+            </clashobjects>
+          </clashresult>
+          <clashresult name="Clash2" guid="a1b2c3d4-0002" status="active" distance="-0.035">
+            <description>Hard</description>
+            <resultstatus>Active</resultstatus>
+            <clashpoint><pos3f x="98.200" y="61.700" z="12.900"/></clashpoint>
+            <gridlocation>D-5 : L03</gridlocation>
+            <createddate><date year="2026" month="11" day="4"/></createddate>
+            <clashobjects>
+              <clashobject><layer>L03</layer><pathlink><node>File</node><node>HMD-DMC-T1-ZZ-M3-M-0003.nwc</node></pathlink><smarttags><smarttag><name>Item Name</name><value>Condenser water pipe DN200</value></smarttag></smarttags></clashobject>
+              <clashobject><layer>L03</layer><pathlink><node>File</node><node>HMD-DSE-T1-ZZ-M3-S-0002.nwc</node></pathlink><smarttags><smarttag><name>Item Name</name><value>Down-stand beam B-31</value></smarttag></smarttags></clashobject>
+            </clashobjects>
+          </clashresult>
+          <clashresult name="Clash3" guid="a1b2c3d4-0003" status="approved" distance="-0.008">
+            <description>Hard</description>
+            <resultstatus>Approved</resultstatus>
+            <clashpoint><pos3f x="91.000" y="40.250" z="16.100"/></clashpoint>
+            <gridlocation>B-2 : L04</gridlocation>
+            <createddate><date year="2026" month="10" day="21"/></createddate>
+            <approveddate><date year="2026" month="10" day="30"/></approveddate>
+            <comments><comment id="1" status="approved"><body>Accepted as construction tolerance by PMC.</body></comment></comments>
+            <clashobjects>
+              <clashobject><layer>L04</layer><pathlink><node>File</node><node>HMD-DMC-T1-ZZ-M3-M-0003.nwc</node></pathlink><smarttags><smarttag><name>Item Name</name><value>Refrigerant line</value></smarttag></smarttags></clashobject>
+              <clashobject><layer>L04</layer><pathlink><node>File</node><node>HMD-DSE-T1-ZZ-M3-S-0002.nwc</node></pathlink><smarttags><smarttag><name>Item Name</name><value>Steel secondary beam</value></smarttag></smarttags></clashobject>
+            </clashobjects>
+          </clashresult>
+        </clashresults>
+      </clashtest>
+      <clashtest name="HVAC vs ARC" test_type="clearance" tolerance="0.050">
+        <clashresults>
+          <clashresult name="Clash1" guid="b9c8-0001" status="reviewed" distance="0.021">
+            <description>Clearance</description>
+            <resultstatus>Reviewed</resultstatus>
+            <clashpoint><pos3f x="60.500" y="22.000" z="4.300"/></clashpoint>
+            <gridlocation>F-9 : GF</gridlocation>
+            <createddate><date year="2026" month="11" day="11"/></createddate>
+            <clashobjects>
+              <clashobject><layer>GF</layer><pathlink><node>File</node><node>HMD-DMX-PD-ZZ-M3-H-0006.nwc</node></pathlink><smarttags><smarttag><name>Item Name</name><value>Supply air duct 1200x600</value></smarttag></smarttags></clashobject>
+              <clashobject><layer>GF</layer><pathlink><node>File</node><node>HMD-DLA-PD-ZZ-M3-A-0001.nwc</node></pathlink><smarttags><smarttag><name>Item Name</name><value>Ceiling grid</value></smarttag></smarttags></clashobject>
+            </clashobjects>
+          </clashresult>
+        </clashresults>
+      </clashtest>
+    </clashtests>
+  </batchtest>
+</exchange>
