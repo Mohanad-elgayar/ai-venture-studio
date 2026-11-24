@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compliware — Pitch</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Reusable logo mark -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cw-mark" viewBox="0 0 100 100">
+      <polygon points="50,6 88.1,28 88.1,72 50,94 11.9,72 11.9,28" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
+      <path d="M65.56 34.44 A22 22 0 1 0 65.56 65.56" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="65.56" cy="65.56" r="5.5" fill="#ffb547"/>
+      <circle cx="50" cy="50" r="4" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="viewport">
+  <div id="stage">
+    <div class="backdrop"></div>
+    <canvas id="bg3d"></canvas>
+    <div class="grid-overlay"></div>
+    <div class="vignette"></div>
+
+    <!-- Shared document-card layer used by scenes 2 and 3 -->
+    <div id="cardfield"></div>
+
+    <!-- ============ 1 · INTRO ============ -->
+    <section class="scene" id="sc-intro">
+      <div class="intro-type">
+        <div class="line l1"><span class="type"></span></div>
+        <div class="line l2"><span class="type"></span></div>
+      </div>
+      <canvas class="logo-dust" width="1920" height="1080"></canvas>
+      <canvas class="logo-crisp" width="1920" height="1080"></canvas>
+      <div class="logo-tag"><span class="type"></span></div>
+    </section>
+
+    <!-- ============ 2 · CHAOS ============ -->
+    <section class="scene" id="sc-chaos">
+      <div class="head-block chaos-head">
+        <div class="kicker">The problem</div>
+        <h2>Knowledge scattered across<br>inboxes, folders and meetings.</h2>
+      </div>
+      <svg class="svg-building" viewBox="0 0 700 560" aria-hidden="true">
+        <g class="svgb-lines" fill="none" stroke="#48e0ff" stroke-width="1.5" opacity=".75">
+          <path d="M120 470 L380 540 L620 450 L360 390 Z"/>
+          <path d="M120 400 L380 470 L620 380 L360 320 Z"/>
+          <path d="M120 330 L380 400 L620 310 L360 250 Z"/>
+          <path d="M120 260 L380 330 L620 240 L360 180 Z"/>
+          <path d="M120 190 L380 260 L620 170 L360 110 Z"/>
+          <path d="M120 120 L380 190 L620 100 L360 40 Z"/>
+          <path d="M120 120 V470 M380 190 V540 M620 100 V450 M360 40 V390"/>
+        </g>
+        <path class="svgb-slab" d="M120 330 L380 400 L620 310 L360 250 Z" fill="#ff3b4e" opacity=".75"/>
+      </svg>
+      <div class="anchor-tag" data-anchor="slab">
+        <i></i>
+        <span>Level 2 · Spa zone</span>
+        <b>MEP sleeves missing</b>
+      </div>
+      <div class="impact">
+        <div class="impact-head"><span class="type"></span></div>
+        <div class="impact-cost">
+          <span>~SAR <b class="num sar">0</b></span>
+          <span class="sep">·</span>
+          <span><b class="num days">0</b> days lost</span>
+        </div>
+        <div class="tag-illustrative">Illustrative scenario · Oberoi – Wadi Safar</div>
+      </div>
+    </section>
+
+    <!-- ============ 3 · ORDER ============ -->
+    <section class="scene" id="sc-order">
+      <div class="head-block center order-head">
+        <div class="kicker">The shift</div>
+        <h2>Every document connected. Every decision traceable.</h2>
+      </div>
+      <div class="group-labels">
+        <span style="left:120px">Emails</span><span style="left:271px">RFIs</span><span style="left:422px">Drawings</span>
+        <span style="left:1362px">Minutes</span><span style="left:1513px">Submittals</span><span style="left:1664px">NCR · TQ · SI</span>
+      </div>
+      <svg class="links" viewBox="0 0 1920 1080" aria-hidden="true">
+        <path d="M572 400 C 690 400, 700 470, 812 492"/>
+        <path d="M572 515 L 808 515"/>
+        <path d="M572 630 C 690 630, 700 560, 812 538"/>
+        <path d="M1348 400 C 1230 400, 1220 470, 1108 492"/>
+        <path d="M1348 515 L 1112 515"/>
+        <path d="M1348 630 C 1230 630, 1220 560, 1108 538"/>
+      </svg>
+      <div class="core">
+        <div class="core-ring r1"></div><div class="core-ring r2"></div><div class="core-ring r3"></div>
+        <div class="core-orb">
+          <svg class="core-mark"><use href="#cw-mark"/></svg>
+          <div class="core-name">COMPLIWARE</div>
+        </div>
+      </div>
+      <div class="core-pills">
+        <div class="pill"><span class="ar">ذاكرة</span><b>Zakerah</b><em>Project memory</em></div>
+        <div class="plus">+</div>
+        <div class="pill amber"><span class="ar">مطابق</span><b>Mutabiq</b><em>Compliance engine</em></div>
+      </div>
+      <div class="alert-row glass">
+        <div class="alert-dot"></div>
+        <div class="alert-text"><b>Before the Level 2 pour:</b> “RFI – Spa sleeves, Level 2” is still open. Hold the pour checklist.</div>
+        <div class="alert-chip">Flagged by Zakerah</div>
+      </div>
+    </section>
+
+    <!-- ============ 4 · DEMO A ============ -->
+    <section class="scene demo" id="sc-demoA"
+      data-kicker="Live demo · Zakerah"
+      data-count="Question 1 of 2"
+      data-q="Why was the AHU route changed?"
+      data-a="Because of a structural beam clash on Level 3."
+      data-detail="The consultant’s response to RFI-245 rerouted the AHU-03 supply duct around transfer beam TB-3.07. The new route is issued in Shop Drawing Rev B."
+      data-chips='[{"doc":"rfi245","type":"RFI","label":"RFI-245","sub":"Consultant response"},{"doc":"sdrevb","type":"DWG","label":"Shop Drawing Rev B","sub":"MEP-SD-L3-021"}]'>
+    </section>
+
+    <!-- ============ 5 · DEMO B ============ -->
+    <section class="scene demo" id="sc-demoB"
+      data-kicker="Live demo · Zakerah"
+      data-count="Question 2 of 2"
+      data-q="Was the fire pump room ceiling height ever revised after the consultant’s comment?"
+      data-a="Yes, from 3.5 m to 4.0 m."
+      data-detail="Raised by the consultant in RFI-0847, then confirmed in coordination meeting MM-112 (item 3.4, page 3)."
+      data-delta='["3.5 m","4.0 m"]'
+      data-chips='[{"doc":"rfi0847","type":"RFI","label":"RFI-0847","sub":"Consultant comment"},{"doc":"mm112","type":"MoM","label":"Meeting Minutes MM-112, p.3","sub":"Item 3.4"}]'>
+    </section>
+
+    <!-- ============ 6 · MUTABIQ ============ -->
+    <section class="scene" id="sc-mutabiq">
+      <div class="head-block tl">
+        <div class="kicker">Mutabiq <span class="ar">مطابق</span> · Automated compliance review</div>
+      </div>
+      <div class="sub-paper paper">
+        <div class="paper-head">
+          <div><div class="ph-kicker">Submittal</div><div class="ph-title">SUB-118 · Fire Pump Package</div></div>
+          <div class="ph-meta">Rev 0<br>Oberoi – Wadi Safar</div>
+        </div>
+        <div class="paper-sub">Vendor data sheet · Horizontal split-case pump, electric drive</div>
+        <div class="ds">
+          <div class="ds-row" data-r="0"><span>Rated capacity</span><b>1,500 gpm</b><i class="hl"></i></div>
+          <div class="ds-row" data-r="1"><span>Rated pressure</span><b>125 psi</b><i class="hl"></i></div>
+          <div class="ds-row" data-r="2"><span>Shutoff (churn) pressure</span><b>168 psi</b><i class="hl"></i></div>
+          <div class="ds-row bad" data-r="3"><span>Pressure at 150% flow</span><b>78 psi</b><i class="hl"></i></div>
+          <div class="ds-row" data-r="4"><span>Driver</span><b>Electric motor, 200 hp</b><i class="hl"></i></div>
+          <div class="ds-row" data-r="5"><span>Controller</span><b>Listed fire pump controller</b><i class="hl"></i></div>
+          <div class="ds-row" data-r="6"><span>Pump room min. temperature</span><b>10 °C</b><i class="hl"></i></div>
+        </div>
+        <div class="paper-curve">
+          <svg viewBox="0 0 600 170" aria-hidden="true">
+            <path d="M40 140 H580 M40 140 V10" stroke="#9aa9bb" stroke-width="1.5" fill="none"/>
+            <path d="M40 30 C 200 34, 330 52, 420 76 S 540 120, 570 128" stroke="#1d3d63" stroke-width="2.5" fill="none"/>
+            <circle cx="40" cy="30" r="4" fill="#1d3d63"/><circle cx="330" cy="54" r="4" fill="#1d3d63"/><circle cx="500" cy="106" r="5" fill="#d9283f"/>
+            <text x="48" y="24" font-size="12" fill="#43566e">Shutoff</text>
+            <text x="300" y="44" font-size="12" fill="#43566e">Rated</text>
+            <text x="512" y="100" font-size="12" fill="#d9283f">150% flow</text>
+            <text x="500" y="160" font-size="11" fill="#6a7c92">Flow →</text>
+          </svg>
+        </div>
+        <div class="laser"></div>
+      </div>
+      <div class="check-panel glass">
+        <div class="cp-head"><span class="cp-title">NFPA 20 check</span><span class="cp-status"><i class="s1">Scanning submittal…</i><i class="s2">Review complete</i></span></div>
+        <div class="checks">
+          <div class="check" data-ok="1"><div class="ck-text"><b>Standard rated capacity</b><span>1,500 gpm</span></div><div class="ck-ref">Ch. 4</div><div class="ck-pill">Compliant</div></div>
+          <div class="check" data-ok="1"><div class="ck-text"><b>Shutoff ≤ 140% of rated pressure</b><span>168 ÷ 125 = 134%</span></div><div class="ck-ref">§6.2</div><div class="ck-pill">Compliant</div></div>
+          <div class="check" data-ok="0"><div class="ck-text"><b>≥ 65% of rated pressure at 150% flow</b><span>78 ÷ 125 = 62%</span></div><div class="ck-ref">§6.2</div><div class="ck-pill">Non-compliant</div></div>
+          <div class="check" data-ok="1"><div class="ck-text"><b>Controller listed for fire pump service</b><span>Listed fire pump controller</span></div><div class="ck-ref">Ch. 10</div><div class="ck-pill">Compliant</div></div>
+        </div>
+        <div class="clause">
+          <div class="clause-ref">NFPA 20 · Centrifugal pump performance <em>(paraphrased)</em></div>
+          <p>The shutoff pressure <span class="cl g">shall not exceed 140% of rated pressure</span>, and the pump <span class="cl r">shall deliver not less than 65% of rated pressure at 150% of rated capacity</span>.</p>
+        </div>
+        <div class="draft"><div class="draft-k">Draft review comment</div>At 150% of rated flow the pump delivers 78 psi (62% of rated pressure), below the NFPA 20 minimum of 65%. Resubmit with a pump selection that meets the requirement and a certified test curve.</div>
+        <div class="verdict"><span class="v-g">3 compliant</span><span class="v-r">1 non-compliant</span><span class="v-act">→ Revise &amp; resubmit, comment drafted</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 7 · VALUE ============ -->
+    <section class="scene" id="sc-value">
+      <div class="head-block center">
+        <div class="kicker">The value</div>
+        <h2>What a project that remembers is worth.</h2>
+      </div>
+      <div class="value-row">
+        <div class="vcard glass">
+          <div class="v-label">Time saved</div>
+          <div class="v-num">SAR <b class="num" data-to="720000">0</b></div>
+          <div class="v-desc">Engineers stop searching inboxes and folders, and get sourced answers in seconds.</div>
+        </div>
+        <div class="vop">+</div>
+        <div class="vcard glass">
+          <div class="v-label">Rework avoided</div>
+          <div class="v-num">SAR <b class="num" data-to="600000">0</b></div>
+          <div class="v-desc">Open RFIs and non-compliant submittals are caught before concrete and steel.</div>
+        </div>
+        <div class="vop">=</div>
+        <div class="vcard glass total">
+          <div class="v-label">Per project, per year</div>
+          <div class="v-num big">~SAR <b class="num" data-to="1.3" data-dec="1">0</b>M</div>
+          <div class="v-desc">From one mega-project. Value grows with every project added to memory.</div>
+        </div>
+      </div>
+      <div class="tag-illustrative center">Illustrative estimate · to be validated during the pilot</div>
+    </section>
+
+    <!-- ============ 8 · PROOF ============ -->
+    <section class="scene" id="sc-proof">
+      <div class="head-block center">
+        <div class="kicker">The proof</div>
+        <h2>Built. Measured. Ready to pilot.</h2>
+      </div>
+      <div class="proof-col proto glass">
+        <div class="col-kicker">Working prototype</div>
+        <div class="proto-frame">
+          <div class="pf-bar"><i></i><i></i><i></i><span>compliware · Oberoi – Wadi Safar</span></div>
+          <div class="pf-body">
+            <div class="pf-q">Which RFIs are still open on Level 2?</div>
+            <div class="pf-a"><b>3 open RFIs on Level 2.</b> The oldest: “Spa sleeves, Level 2”, open for 21 days.</div>
+            <div class="pf-chips"><span>RFI-219</span><span>RFI-231</span><span>RFI-238</span></div>
+            <div class="pf-sep"></div>
+            <div class="pf-check"><i class="ok"></i>SUB-089 Waterproofing <em>Compliant</em></div>
+            <div class="pf-check"><i class="bad"></i>SUB-118 Fire pump set <em>1 issue</em></div>
+            <div class="pf-check"><i class="ok"></i>SUB-044 Fire dampers <em>Compliant</em></div>
+          </div>
+        </div>
+        <div class="col-foot">Zakerah + Mutabiq, running on real project documents</div>
+      </div>
+      <div class="proof-col metrics glass">
+        <div class="col-kicker">Research metrics</div>
+        <div class="metric">
+          <svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="68" class="m-track"/><circle cx="80" cy="80" r="68" class="m-arc" data-v="94.3"/></svg>
+          <div class="m-val"><b class="num" data-to="94.3" data-dec="1">0</b>%</div>
+          <div class="m-label">Retrieval accuracy</div>
+        </div>
+        <div class="metric amber">
+          <svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="68" class="m-track"/><circle cx="80" cy="80" r="68" class="m-arc" data-v="91.7"/></svg>
+          <div class="m-val"><b class="num" data-to="91.7" data-dec="1">0</b>%</div>
+          <div class="m-label">Compliance precision</div>
+        </div>
+      </div>
+      <div class="proof-col founders glass">
+        <div class="col-kicker">Founders</div>
+        <div class="founder">
+          <div class="f-mono">ME</div>
+          <div><b>Mohanad Elgayar</b><span>Co-founder</span></div>
+        </div>
+        <div class="founder">
+          <div class="f-mono amber">MF</div>
+          <div><b>Mostafa Fouad</b><span>Co-founder</span></div>
+        </div>
+        <div class="col-foot">Construction delivery experience, applied to AI</div>
+      </div>
+    </section>
+
+    <!-- ============ 9 · ROADMAP ============ -->
+    <section class="scene" id="sc-roadmap">
+      <div class="head-block center">
+        <div class="kicker">The roadmap</div>
+        <h2>One memory. Every workflow on top of it.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-line"><div class="tl-fill"></div><div class="tl-pulse"></div></div>
+        <div class="tl-node" style="left:200px"><div class="tl-phase">Prototype</div><div class="tl-dot"></div><div class="tl-name">Zakerah <span class="ar">ذاكرة</span></div><div class="tl-desc">Project memory: ask anything, get sourced answers</div></div>
+        <div class="tl-node" style="left:580px"><div class="tl-phase">Prototype</div><div class="tl-dot"></div><div class="tl-name">Mutabiq <span class="ar">مطابق</span></div><div class="tl-desc">Code compliance checks on submittals</div></div>
+        <div class="tl-node" style="left:960px"><div class="tl-phase next">Next</div><div class="tl-dot"></div><div class="tl-name">Submittal / RFI</div><div class="tl-desc">Draft reviews and responses with full traceability</div></div>
+        <div class="tl-node" style="left:1340px"><div class="tl-phase later">Later</div><div class="tl-dot"></div><div class="tl-name">Tender Engine</div><div class="tl-desc">Read tenders, flag risk, compare bids</div></div>
+        <div class="tl-node" style="left:1720px"><div class="tl-phase later">Later</div><div class="tl-dot"></div><div class="tl-name">Estimation / QTO</div><div class="tl-desc">Quantities and cost from drawings and models</div></div>
+      </div>
+    </section>
+
+    <!-- ============ 10 · ASK ============ -->
+    <section class="scene" id="sc-ask">
+      <div class="ask-lines">
+        <div class="ask-l1"><span class="type"></span></div>
+        <div class="ask-l2">Let’s prove it.</div>
+      </div>
+      <div class="asks">
+        <div class="ask glass"><div class="ask-n">01</div><b>Pilot on Oberoi – Wadi Safar</b><span>One live project, 90 days</span></div>
+        <div class="ask glass"><div class="ask-n">02</div><b>Secure document access</b><span>Read-only, on your terms</span></div>
+        <div class="ask glass"><div class="ask-n">03</div><b>Executive sponsor</b><span>One decision-maker who owns success</span></div>
+      </div>
+      <div class="ask-logo"><svg><use href="#cw-mark"/></svg>COMPLIWARE</div>
+    </section>
+
+    <!-- Document preview (opened from source chips) -->
+    <div id="preview" aria-hidden="true">
+      <div class="pv-backdrop"></div>
+      <div class="pv-panel glass">
+        <div class="pv-head"><span class="pv-type"></span><span class="pv-title"></span><button class="pv-close" type="button">Close ✕</button></div>
+        <div class="pv-body"></div>
+      </div>
+    </div>
+
+    <div id="wipe"></div>
+    <div id="progress"></div>
+    <div id="armed-hint">Press <kbd>→</kbd> to begin · <kbd>F</kbd> fullscreen · <kbd>H</kbd> help</div>
+    <div id="pause-dot" title="Paused"></div>
+  </div>
+
+  <div id="notes-overlay"></div>
+  <div id="help">
+    <div class="help-panel">
+      <h3>Presenter keys</h3>
+      <dl>
+        <dt>→ · PgDn · Space · Enter</dt><dd>Next (finishes a running animation first)</dd>
+        <dt>← · PgUp</dt><dd>Previous</dd>
+        <dt>1–9, 0</dt><dd>Jump to scene 1–10</dd>
+        <dt>F · F5</dt><dd>Toggle fullscreen</dd>
+        <dt>K</dt><dd>Pause / resume all animation</dd>
+        <dt>R</dt><dd>Replay current scene</dd>
+        <dt>N</dt><dd>Presenter notes on this screen</dd>
+        <dt>P</dt><dd>Presenter window (notes, next scene, timer)</dd>
+        <dt>L</dt><dd>Lite mode: reduced animation for weak laptops</dd>
+        <dt>B · .</dt><dd>Black screen</dd>
+        <dt>Esc</dt><dd>Close document preview / this panel</dd>
+      </dl>
+      <p class="help-mode"></p>
+    </div>
+  </div>
+  <div id="blackout"></div>
+  <div id="toast"></div>
+</div>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/three.min.js"></script>
+<script src="js/content.js"></script>
+<script src="js/bg.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
